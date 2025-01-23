@@ -8,5 +8,17 @@
  * @returns {Array<number>}
  */
 module.exports.replacement = function replacement(arr) {
-  throw new Error('Not implemented'); // remove me and write a solution
+  return arr.map(num => {
+    const absNum = Math.abs(num); // Work with the absolute value for digit count
+
+    if (absNum < 10) {
+      return 1; // One-digit numbers
+    } else if (absNum < 100) {
+      return 2; // Two-digit numbers
+    } else if (absNum < 1000) {
+      return 3; // Three-digit numbers
+    } else {
+      return 4; // Numbers with more than three digits
+    }
+  });
 };

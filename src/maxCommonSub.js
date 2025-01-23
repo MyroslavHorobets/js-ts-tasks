@@ -9,5 +9,36 @@
  * @returns {number}
  */
 module.exports.maxCommonSub = function maxCommonSub(str1, str2) {
-  throw new Error('Not implemented'); // remove me and write a solution
+  let maxSubstring = '';
+  const len1 = str1.length;
+  const len2 = str2.length;
+
+  // Create a 2D array to store lengths of common substrings
+  const dp = Array(len1 + 1)
+    .fill(null)
+    .map(() => Array(len2 + 1).fill(0));
+
+  let maxLength = 0; // Keep track of the maximum length
+  let endIndexStr1 = 0; // Track the end index of the maximal substring in str1
+
+  for (let i = 1; i <= len1; i++) {
+    for (let j = 1; j <= len2; j++) {
+      if (str1[i - 1] === str2[j - 1]) {
+        dp[i][j] = dp[i - 1][j - 1] + 1;
+
+        // Update maximal substring if a longer one is found
+        if (dp[i][j] > maxLength) {
+          maxLength = dp[i][j];
+          endIndexStr1 = i; // Update the end index
+        }
+      }
+    }
+  }
+
+  // Extract the maximal common substring
+  if (maxLength > 0) {
+    maxSubstring = str1.slice(endIndexStr1 - maxLength, endIndexStr1);
+  }
+
+  return maxSubstring;
 };
