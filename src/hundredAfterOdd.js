@@ -8,10 +8,8 @@ module.exports.hundredAfterOdd = function hundredAfterOdd(arr) {
   for (let i = 0; i < arr.length; i++) {
     result.push(arr[i]);
     if (arr[i] % 2 !== 0) {
-      // Check if the number is odd
       result.push(100);
     }
   }
-
   return result;
 };

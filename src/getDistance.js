@@ -10,6 +10,5 @@ module.exports.getDistance = function getDistance(firstPoint, secondPoint) {
   const deltaX = secondPoint.X - firstPoint.X;
   const deltaY = secondPoint.Y - firstPoint.Y;
   const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2);
-
   return parseFloat(distance.toFixed(2));
 };

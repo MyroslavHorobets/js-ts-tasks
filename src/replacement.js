@@ -9,16 +9,16 @@
  */
 module.exports.replacement = function replacement(arr) {
   return arr.map(num => {
-    const absNum = Math.abs(num); // Work with the absolute value for digit count
+    const aNum = Math.abs(num);
 
-    if (absNum < 10) {
-      return 1; // One-digit numbers
-    } else if (absNum < 100) {
-      return 2; // Two-digit numbers
-    } else if (absNum < 1000) {
-      return 3; // Three-digit numbers
+    if (aNum < 10) {
+      return 1;
+    } else if (aNum < 100) {
+      return 2;
+    } else if (aNum < 1000) {
+      return 3;
     } else {
-      return 4; // Numbers with more than three digits
+      return 4;
     }
   });
 };

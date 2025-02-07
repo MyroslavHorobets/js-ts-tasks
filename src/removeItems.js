@@ -6,12 +6,11 @@
  */
 module.exports.removeItems = function removeItems(arr, value) {
   return arr.filter(item => {
-    // For objects, we check if the items are deeply equal using JSON.stringify.
     if (typeof value === 'object' && value !== null) {
       if (typeof item === 'object' && item !== null) {
-        return JSON.stringify(item) !== JSON.stringify(value); // Deep comparison for objects
+        return JSON.stringify(item) !== JSON.stringify(value);
       }
     }
-    return item !== value; // For primitives, perform direct comparison
+    return item !== value;
   });
 };
